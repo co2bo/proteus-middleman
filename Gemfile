@@ -16,7 +16,8 @@ gem 'middleman-compass',      git: 'git@github.com:middleman/middleman-compass.g
 gem 'middleman-minify-html',  '~> 3.4.1'
 
 # Asset Pipeline Gems
-gem 'neat',      '~> 2.0.0.beta.2'
+gem 'jquery-middleman', '~> 3.1.2'
+gem 'neat',             '~> 2.0.0.beta.2'
 
 # Templating Engines
 gem 'coffee-script', '~> 2.4.1'
