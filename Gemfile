@@ -1,16 +1,26 @@
-# If you do not have OpenSSL installed, change
-# the following line to use "http://"
-source "https://rubygems.org"
+source 'https://rubygems.org'
+ruby '2.3.1'
 
-# Uncomment these gems if you are using Windows
-# gem "wdm", "~> 0.1.0", platforms: [:mswin, :mingw]
-# gem "tzinfo-data", platforms: [:mswin, :mingw, :jruby]
+# Windows Support
+gem 'wdm' if Gem.win_platform?
 
-gem "bourbon", "~> 4.2"
-gem "middleman", "~> 4.0"
-gem "middleman-autoprefixer", "~> 2.6"
-gem "middleman-deploy", "= 2.0.0.pre.alpha"
-gem "middleman-livereload", "~> 3.4"
-gem "middleman-sprockets", "= 4.0.0.rc.1"
-gem "neat", "~> 1.7"
-gem "sassc", "~> 1.8"
+# Bourbon
+gem 'bourbon',                '~> 5.0.0.beta.7'
+
+# Middleman Gems
+gem 'middleman',              '~> 4.2.1'
+gem 'middleman-autoprefixer', '~> 2.7.1'
+gem 'middleman-livereload',   '~> 3.4.6'
+gem 'middleman-sprockets',    git: 'git@github.com:middleman/middleman-sprockets.git'
+gem 'middleman-compass',      git: 'git@github.com:middleman/middleman-compass.git'
+gem 'middleman-minify-html',  '~> 3.4.1'
+
+# Asset Pipeline Gems
+gem 'neat',      '~> 2.0.0.beta.2'
+
+# Templating Engines
+gem 'coffee-script', '~> 2.4.1'
+gem 'redcarpet',     '~> 3.4.0'
+gem 'builder',       '~> 3.2.3'
+gem 'sassc',         '~> 1.11.2'
+gem 'rake',          '~> 12.0.0'
