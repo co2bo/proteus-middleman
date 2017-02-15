@@ -1,4 +1,3 @@
-
 ##
 # Sprockets
 activate :sprockets do |c|
@@ -7,28 +6,39 @@ end
 
 ##
 # Autoprefixer
-activate :autoprefixer do |prefix|
-  prefix.browsers = 'last 2 versions'
+activate :autoprefixer do |config|
+  config.browsers = ['last 2 versions', '> 10%']
+  config.cascade  = false
+  config.inline   = true
 end
+
+##
+# Image Tag Helper
+activate :automatic_image_sizes
 
 ##
 # Pretty URLs
 activate :directory_indexes
+page '/404.html', directory_index: false
 
 ##
 # Relative Links
-set :relative_links, true
+config[:relative_links] = true
 
 ##
 # Asset Pipeline Sets
-set :css_dir,    'assets/stylesheets'
-set :fonts_dir,  'assets/fonts'
-set :images_dir, 'assets/images'
-set :js_dir,     'assets/javascripts'
+confi[:css_dir]    = 'assets/stylesheets'
+confi[:fonts_dir]  = 'assets/fonts'
+confi[:images_dir] = 'assets/images'
+confi[:js_dir]     = 'assets/javascripts'
+
+#----------------------------------------------------
+# Layout-specific Configuration
+#----------------------------------------------------
 
 ##
 # Default Layout
-set :layout, 'layouts/application'
+config[:layout] = 'layouts/application'
 
 ##
 # Width no Layout
@@ -44,6 +54,16 @@ configure :development do
   activate :livereload do |reload|
     reload.no_swf = true
   end
+end
+
+#----------------------------------------------------
+# Helpers
+#----------------------------------------------------
+
+helpers do
+  # If you need helpers for use in this file, then you
+  # can define them here. Otherwise, they should be defined
+  # in `helpers/custom_helpers.rb`.
 end
 
 #----------------------------------------------------
